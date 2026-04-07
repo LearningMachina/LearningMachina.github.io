@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LearningMachina — Learn. Build. Think.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink:     #0d0d0f;
+    --paper:   #f5f3ee;
+    --warm:    #ede9e0;
+    --green:   #1a7a4a;
+    --green-l: #d4eddf;
+    --amber:   #e07b00;
+    --amber-l: #fdf0d8;
+    --red:     #c0392b;
+    --muted:   #6b6860;
+    --border:  #d8d4cb;
+    --mono:    'Space Mono', monospace;
+    --sans:    'DM Sans', sans-serif;
+    --display: 'Syne', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NOISE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.5;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2.5rem;
+    background: rgba(245,243,238,0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--green); }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+  }
+
+  nav ul a {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  nav ul a:hover { color: var(--ink); }
+
+  .nav-cta {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 0.5rem 1.1rem;
+    border-radius: 2px;
+    text-decoration: none;
+    letter-spacing: 0.06em;
+    transition: background 0.2s;
+  }
+
+  .nav-cta:hover { background: var(--green); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 7rem 2.5rem 4rem;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .hero-text { position: relative; }
+
+  .hero-eyebrow {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--green);
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 2rem;
+    height: 1px;
+    background: var(--green);
+  }
+
+  h1 {
+    font-family: var(--display);
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+  }
+
+  h1 .accent { color: var(--green); }
+  h1 .line2 { display: block; color: var(--muted); font-size: 0.65em; font-weight: 700; letter-spacing: -0.02em; }
+
+  .hero-desc {
+    font-size: 1.05rem;
+    color: var(--muted);
+    max-width: 42ch;
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .btn-primary {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 0.85rem 1.8rem;
+    border-radius: 2px;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .btn-primary:hover { background: var(--green); transform: translateY(-1px); }
+
+  .btn-secondary {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: var(--ink);
+    padding: 0.85rem 1.8rem;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: all 0.2s;
+  }
+
+  .btn-secondary:hover { border-color: var(--ink); transform: translateY(-1px); }
+
+  /* ── ROBOT VISUAL ── */
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .robot-card {
+    background: var(--ink);
+    border-radius: 12px;
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 380px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .robot-card::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(26,122,74,0.3) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .robot-face {
+    font-size: 4.5rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    animation: float 4s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  .terminal {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: #a0e8b8;
+    background: rgba(255,255,255,0.04);
+    border-radius: 6px;
+    padding: 1rem 1.2rem;
+    line-height: 2;
+  }
+
+  .terminal .prompt { color: var(--green); }
+  .terminal .cmd { color: #f5f3ee; }
+  .terminal .out { color: #888; }
+
+  .cursor {
+    display: inline-block;
+    width: 7px; height: 14px;
+    background: var(--green);
+    vertical-align: middle;
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+  .robot-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.2rem;
+  }
+
+  .tag {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    padding: 3px 10px;
+    border-radius: 2px;
+    letter-spacing: 0.04em;
+  }
+
+  .tag-green { background: rgba(26,122,74,0.25); color: #6be8a0; }
+  .tag-amber { background: rgba(224,123,0,0.2); color: #fbb84a; }
+  .tag-gray  { background: rgba(255,255,255,0.08); color: #999; }
+
+  /* ── STATS BAR ── */
+  .stats-bar {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 1.8rem 2.5rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .stat {
+    text-align: center;
+    padding: 0 1rem;
+    border-right: 1px solid var(--border);
+  }
+
+  .stat:last-child { border-right: none; }
+
+  .stat-num {
+    font-family: var(--display);
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+
+  .stat-label {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+  }
+
+  /* ── SECTIONS ── */
+  section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5rem 2.5rem;
+  }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .section-label::before {
+    content: '';
+    display: inline-block;
+    width: 1.5rem;
+    height: 1px;
+    background: var(--muted);
+  }
+
+  h2 {
+    font-family: var(--display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+
+  /* ── WHAT IS IT ── */
+  .what-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 4rem;
+    align-items: start;
+    margin-top: 3rem;
+  }
+
+  .what-body p {
+    font-size: 1.05rem;
+    color: var(--muted);
+    margin-bottom: 1.2rem;
+    line-height: 1.8;
+  }
+
+  .what-body strong { color: var(--ink); font-weight: 500; }
+
+  .spec-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .spec-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: var(--ink);
+    padding: 0.7rem 1rem;
+    background: var(--warm);
+    border-radius: 4px;
+    border-left: 3px solid var(--green);
+  }
+
+  .spec-list li .spec-icon { font-size: 1rem; }
+
+  /* ── LEARNING TRACKS ── */
+  .tracks {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .track-card {
+    background: var(--warm);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.8rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .track-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+  }
+
+  .track-card::after {
+    content: attr(data-num);
+    position: absolute;
+    bottom: -0.5rem; right: 1rem;
+    font-family: var(--display);
+    font-size: 5rem;
+    font-weight: 800;
+    color: rgba(0,0,0,0.04);
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .track-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .track-level {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--green);
+    margin-bottom: 0.4rem;
+  }
+
+  .track-card h3 {
+    font-family: var(--display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+  }
+
+  .track-card p {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .track-card.featured {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--paper);
+  }
+
+  .track-card.featured .track-level { color: #6be8a0; }
+  .track-card.featured h3 { color: var(--paper); }
+  .track-card.featured p { color: #999; }
+  .track-card.featured::after { color: rgba(255,255,255,0.04); }
+
+  /* ── AI COACH ── */
+  .coach-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .coach-card {
+    padding: 1.8rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: white;
+  }
+
+  .coach-card .icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .coach-card h3 {
+    font-family: var(--sans);
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .coach-card p {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .coach-hero {
+    grid-column: span 2;
+    background: var(--green-l);
+    border-color: rgba(26,122,74,0.2);
+  }
+
+  .coach-hero h3 { font-size: 1.15rem; }
+  .coach-hero p { font-size: 0.95rem; max-width: 60ch; }
+
+  /* ── WHO IS IT FOR ── */
+  .audience-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-top: 3rem;
+  }
+
+  .audience-card {
+    text-align: center;
+    padding: 2rem 1.2rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--warm);
+    transition: border-color 0.2s;
+  }
+
+  .audience-card:hover { border-color: var(--green); }
+
+  .audience-card .emo { font-size: 2.5rem; margin-bottom: 0.8rem; }
+
+  .audience-card h3 {
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
+
+  .audience-card p {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* ── FOLLOW SECTION ── */
+  .follow-section {
+    background: var(--ink);
+    color: var(--paper);
+    margin: 0;
+    max-width: 100%;
+    padding: 5rem 2.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .follow-section::before {
+    content: 'LM';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--display);
+    font-size: 20rem;
+    font-weight: 800;
+    color: rgba(255,255,255,0.02);
+    pointer-events: none;
+    white-space: nowrap;
+  }
+
+  .follow-inner {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .follow-section h2 {
+    color: var(--paper);
+    margin-bottom: 1rem;
+  }
+
+  .follow-section p {
+    color: #888;
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+  }
+
+  .follow-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-light {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    background: var(--paper);
+    color: var(--ink);
+    padding: 0.85rem 1.8rem;
+    border-radius: 2px;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .btn-light:hover { background: var(--green-l); transform: translateY(-1px); }
+
+  .btn-outline-light {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: var(--paper);
+    padding: 0.85rem 1.8rem;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 2px;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: all 0.2s;
+  }
+
+  .btn-outline-light:hover { border-color: rgba(255,255,255,0.6); transform: translateY(-1px); }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  footer .logo {
+    font-family: var(--mono);
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  footer .logo span { color: var(--green); }
+
+  footer p {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+
+  footer a {
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  footer a:hover { color: var(--ink); }
+
+  /* ── DIVIDER ── */
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: var(--border);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* ── ANIMATIONS ── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.7s ease forwards;
+  }
+
+  @keyframes fadeIn {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in:nth-child(1) { animation-delay: 0.1s; }
+  .fade-in:nth-child(2) { animation-delay: 0.2s; }
+  .fade-in:nth-child(3) { animation-delay: 0.3s; }
+  .fade-in:nth-child(4) { animation-delay: 0.4s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; padding-top: 6rem; }
+    .hero-visual { order: -1; }
+    .what-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .tracks { grid-template-columns: 1fr 1fr; }
+    .coach-grid { grid-template-columns: 1fr; }
+    .coach-hero { grid-column: span 1; }
+    .audience-grid { grid-template-columns: 1fr 1fr; }
+    .stats-bar { grid-template-columns: repeat(2, 1fr); }
+    .stat { border-right: none; border-bottom: 1px solid var(--border); padding: 1rem; }
+    nav ul { display: none; }
+  }
+
+  @media (max-width: 600px) {
+    .tracks { grid-template-columns: 1fr; }
+    .audience-grid { grid-template-columns: 1fr 1fr; }
+    h1 { font-size: 2.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Learning<span>Machina</span></a>
+  <ul>
+    <li><a href="#what">What</a></li>
+    <li><a href="#learn">Learn</a></li>
+    <li><a href="#coach">AI Coach</a></li>
+    <li><a href="#who">Who</a></li>
+  </ul>
+  <a href="https://github.com/LearningMachina" class="nav-cta" target="_blank">★ Follow on GitHub</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-text">
+    <div class="hero-eyebrow fade-in">Open Source EdTech Hardware</div>
+    <h1 class="fade-in">
+      Learn.<br>
+      <span class="accent">Build.</span><br>
+      <span class="line2">Then make it think.</span>
+    </h1>
+    <p class="hero-desc fade-in">
+      One robot. One device. Everything you need to go from your first line of code to a fully autonomous, AI-powered machine — no internet required.
+    </p>
+    <div class="hero-actions fade-in">
+      <a href="https://github.com/LearningMachina" class="btn-primary" target="_blank">
+        ★ Follow on GitHub
+      </a>
+      <a href="#what" class="btn-secondary">Learn more ↓</a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="robot-card">
+      <div class="robot-face">🤖</div>
+      <div class="terminal">
+        <div><span class="prompt">$</span> <span class="cmd">python hello.py</span></div>
+        <div class="out">Hello, world!</div>
+        <div><span class="prompt">$</span> <span class="cmd">python drive_robot.py</span></div>
+        <div class="out">Motors online. Sensors ready.</div>
+        <div><span class="prompt">$</span> <span class="cmd">python train_ai.py</span></div>
+        <div class="out">Training... epoch 1/10</div>
+        <div><span class="prompt">$</span> <span class="cursor"></span></div>
+      </div>
+      <div class="robot-tags">
+        <span class="tag tag-green">Python</span>
+        <span class="tag tag-green">C++</span>
+        <span class="tag tag-green">Rust</span>
+        <span class="tag tag-amber">Jetson Orin</span>
+        <span class="tag tag-amber">GPU</span>
+        <span class="tag tag-gray">Offline</span>
+        <span class="tag tag-gray">LEGO-compatible</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat">
+    <div class="stat-num">1</div>
+    <div class="stat-label">Device for everything</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">4</div>
+    <div class="stat-label">Learning tracks</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">∞</div>
+    <div class="stat-label">Works offline</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">0</div>
+    <div class="stat-label">Cloud dependency</div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- WHAT IS IT -->
+<section id="what">
+  <div class="section-label">The product</div>
+  <h2>A robot that is also a computer.<br>A computer that is also a teacher.</h2>
+  <div class="what-grid">
+    <div class="what-body">
+      <p>
+        <strong>LearningMachina</strong> is a compact robot built on the <strong>NVIDIA Jetson Orin Nano</strong> — a full Linux PC with a GPU, squeezed into a LEGO-compatible case. Connect a monitor and keyboard: it's a computer. Connect motors, cameras, and sensors: it's a robot brain.
+      </p>
+      <p>
+        Most people who want to learn programming, robotics, <em>and</em> AI need three separate setups — a laptop, a robotics kit, and a GPU workstation. That's hundreds of euros and hours of configuration before you write a single line of code.
+      </p>
+      <p>
+        LearningMachina ships ready. Every tool installed, every language configured, every course pre-loaded. Plug it in, power it on, and start learning.
+      </p>
+    </div>
+    <ul class="spec-list">
+      <li><span class="spec-icon">🧠</span> NVIDIA Jetson Orin Nano — full Linux + GPU</li>
+      <li><span class="spec-icon">⚙️</span> Motor driver board included</li>
+      <li><span class="spec-icon">📷</span> Camera &amp; sensor ports ready</li>
+      <li><span class="spec-icon">🧱</span> LEGO-compatible modular case</li>
+      <li><span class="spec-icon">🐍</span> Python, C++, Rust pre-installed</li>
+      <li><span class="spec-icon">📡</span> 100% offline capable</li>
+      <li><span class="spec-icon">🔋</span> Battery included</li>
+      <li><span class="spec-icon">🌐</span> Optional cloud connectivity</li>
+    </ul>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- LEARNING TRACKS -->
+<section id="learn">
+  <div class="section-label">The curriculum</div>
+  <h2>One path. No dead ends.</h2>
+  <div class="tracks">
+    <div class="track-card" data-num="01">
+      <div class="track-icon">💻</div>
+      <div class="track-level">Level 01 — Beginner</div>
+      <h3>Programming</h3>
+      <p>Variables, loops, functions. Your first real programs running on real hardware. Python and C++ from scratch.</p>
+    </div>
+    <div class="track-card featured" data-num="02">
+      <div class="track-icon">🤖</div>
+      <div class="track-level">Level 02 — Intermediate</div>
+      <h3>Robotics</h3>
+      <p>Wire motors and sensors. Write control code. Watch your robot move, react, and navigate the physical world.</p>
+    </div>
+    <div class="track-card" data-num="03">
+      <div class="track-icon">🧠</div>
+      <div class="track-level">Level 03 — Advanced</div>
+      <h3>AI &amp; Machine Learning</h3>
+      <p>Train models locally on the robot itself. Object detection, autonomous navigation — real AI, on real hardware.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- AI COACH -->
+<section id="coach">
+  <div class="section-label">The AI learning coach</div>
+  <h2>Your teacher lives in the robot.</h2>
+  <div class="coach-grid">
+    <div class="coach-card coach-hero">
+      <div class="icon">🎓</div>
+      <h3>A local LLM, fine-tuned on every course</h3>
+      <p>An AI coach runs entirely on the device — no internet, no subscription. It knows the full curriculum, answers questions in depth, explains what went wrong in your code, and guides you through every step. Your personal tutor, available 24/7, even off-grid.</p>
+    </div>
+    <div class="coach-card">
+      <div class="icon">🎙️</div>
+      <h3>Voice interface</h3>
+      <p>Talk to the robot, hear the answer back. Built-in speech recognition and text-to-speech means your hands stay free while you're building and wiring.</p>
+    </div>
+    <div class="coach-card">
+      <div class="icon">📶</div>
+      <h3>Optional cloud upgrade</h3>
+      <p>Connect to a hosted service for a more powerful model, community-contributed content, and continuously updated courses.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- WHO IS IT FOR -->
+<section id="who">
+  <div class="section-label">Who is it for?</div>
+  <h2>Pretty much everyone, honestly.</h2>
+  <div class="audience-grid">
+    <div class="audience-card">
+      <div class="emo">🧑‍🎓</div>
+      <h3>Students</h3>
+      <p>Learn to code, build robots, and train AI — all on one device, at your own pace.</p>
+    </div>
+    <div class="audience-card">
+      <div class="emo">👩‍🏫</div>
+      <h3>Teachers</h3>
+      <p>A complete classroom tool. No IT setup, no cloud accounts, no broken dependencies.</p>
+    </div>
+    <div class="audience-card">
+      <div class="emo">🔧</div>
+      <h3>Makers &amp; Tinkerers</h3>
+      <p>A Jetson Linux box in a robot body, pre-configured and ready to hack.</p>
+    </div>
+    <div class="audience-card">
+      <div class="emo">🌍</div>
+      <h3>Off-grid &amp; Remote</h3>
+      <p>Works anywhere, no internet needed. Quality education without connectivity barriers.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOLLOW CTA -->
+<section class="follow-section">
+  <div class="follow-inner">
+    <div class="section-label" style="justify-content: center; color: #666;">Join the project</div>
+    <h2>This is just the beginning.</h2>
+    <p>LearningMachina is an open, evolving project. Follow along on GitHub to watch it get built — and eventually, build one yourself.</p>
+    <div class="follow-actions">
+      <a href="https://github.com/LearningMachina" class="btn-light" target="_blank">
+        ★ Follow on GitHub
+      </a>
+      <a href="mailto:hello@learningmachina.dev" class="btn-outline-light">Get in touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#" class="logo">Learning<span>Machina</span></a>
+  <p>Open source · Built with ♥ · <a href="https://github.com/LearningMachina" target="_blank">github.com/LearningMachina</a></p>
+</footer>
+
+</body>
+</html>
