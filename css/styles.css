@@ -146,6 +146,34 @@ nav.scrolled {
   gap: 1rem;
 }
 
+/* ── LANGUAGE TOGGLE ──────────────────────────────────────── */
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  background: var(--warm);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 0.4rem 0.7rem;
+  cursor: pointer;
+  transition: border-color 0.2s var(--ease), color 0.2s var(--ease),
+              background 0.2s var(--ease), transform 0.15s var(--ease);
+}
+
+.lang-toggle:hover {
+  border-color: var(--blue);
+  color: var(--ink);
+  background: var(--blue-l);
+  transform: translateY(-1px);
+}
+
+.lang-flag { font-size: 1rem; line-height: 1; }
+.lang-code { font-weight: 700; }
+
 .nav-cta {
   font-family: var(--mono);
   font-size: 0.72rem;
@@ -613,11 +641,29 @@ h2 {
 }
 
 /* ── TRACKS ──────────────────────────────────────────────── */
+.section-subtitle {
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--muted);
+  max-width: 60ch;
+  line-height: 1.7;
+  margin-bottom: 0.5rem;
+}
+
 .tracks {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   margin-top: 3rem;
+}
+
+.tracks-5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.learn-cta {
+  text-align: center;
+  margin-top: 2.5rem;
 }
 
 .track-card {
@@ -902,6 +948,7 @@ footer a:hover    { color: var(--ink); }
 
   .nav-links { display: none; }
   .hamburger { display: flex; }
+  .nav-cta   { display: none; }
 
   .nav-links.open {
     display: flex;
@@ -922,6 +969,7 @@ footer a:hover    { color: var(--ink); }
   .hero-visual               { order: -1; }
   .what-grid                 { grid-template-columns: 1fr; gap: 2rem; }
   .tracks                    { grid-template-columns: 1fr 1fr; }
+  .tracks-5                  { grid-template-columns: repeat(3, 1fr); }
   .coach-grid                { grid-template-columns: 1fr; }
   .coach-hero                { grid-column: span 1; }
   .audience-grid             { grid-template-columns: 1fr 1fr; }
@@ -929,12 +977,15 @@ footer a:hover    { color: var(--ink); }
   .stat                      { border-right: none; border-bottom: 1px solid var(--border); padding: 1rem; }
   .stat:nth-child(odd)       { border-right: 1px solid var(--border); }
   .stat:nth-last-child(-n+2) { border-bottom: none; }
+  .lang-toggle               { padding: 0.35rem 0.55rem; }
 }
 
 @media (max-width: 600px) {
   section    { padding: 3rem 1.25rem; }
   .tracks    { grid-template-columns: 1fr; }
+  .tracks-5  { grid-template-columns: 1fr; }
   h1         { font-size: 2.8rem; }
   .stats-bar { padding: 1.25rem; }
   nav        { padding: 0.9rem 1.25rem; }
+  .audience-grid { grid-template-columns: 1fr; }
 }

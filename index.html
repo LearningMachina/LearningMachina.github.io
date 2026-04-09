@@ -18,14 +18,18 @@
   <nav id="nav">
     <a href="#" class="nav-logo">Learning<span>Machina</span></a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#what">What</a></li>
-      <li><a href="#learn">Learn</a></li>
-      <li><a href="#coach">AI Coach</a></li>
-      <li><a href="#who">Who</a></li>
+      <li><a href="#what" data-i18n="nav.what">What</a></li>
+      <li><a href="#learn" data-i18n="nav.learn">Learn</a></li>
+      <li><a href="#coach" data-i18n="nav.coach">AI Coach</a></li>
+      <li><a href="#who" data-i18n="nav.who">Who</a></li>
     </ul>
     <div class="nav-right">
+      <button class="lang-toggle" id="langToggle" aria-label="Switch language">
+        <span class="lang-flag" id="langFlag">🇬🇧</span>
+        <span class="lang-code" id="langCode">EN</span>
+      </button>
       <a href="https://github.com/LearningMachina" class="nav-cta" target="_blank">
-        <span class="material-symbols-outlined">star</span> Follow on GitHub
+        <span class="material-symbols-outlined">star</span> <span data-i18n="nav.github">Follow on GitHub</span>
       </a>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu">
         <span></span><span></span><span></span>
@@ -40,22 +44,22 @@
       <div class="orb orb-2"></div>
     </div>
     <div class="hero-text">
-      <div class="hero-eyebrow">Open Source EdTech Hardware</div>
+      <div class="hero-eyebrow" data-i18n="hero.eyebrow">Open Source EdTech Hardware</div>
       <h1>
-        Learn.<br>
-        <span class="accent">Build.</span><br>
-        <span class="line2">Then make it think.</span>
+        <span data-i18n="hero.line1">Learn.</span><br>
+        <span class="accent" data-i18n="hero.line2">Build.</span><br>
+        <span class="line2" data-i18n="hero.line3">Then make it think.</span>
       </h1>
-      <p class="hero-desc">
+      <p class="hero-desc" data-i18n="hero.desc">
         One robot. One device. Everything you need to go from your first line of code
         to a fully autonomous, AI-powered machine — no internet required.
       </p>
       <div class="hero-actions">
         <a href="https://github.com/LearningMachina" class="btn-primary" target="_blank">
-          <span class="material-symbols-outlined">star</span> Follow on GitHub
+          <span class="material-symbols-outlined">star</span> <span data-i18n="nav.github">Follow on GitHub</span>
         </a>
         <a href="#what" class="btn-secondary">
-          Learn more <span class="material-symbols-outlined">arrow_downward</span>
+          <span data-i18n="hero.learnMore">Learn more</span> <span class="material-symbols-outlined">arrow_downward</span>
         </a>
       </div>
     </div>
@@ -85,20 +89,20 @@
   <!-- STATS BAR -->
   <div class="stats-bar">
     <div class="stat">
-      <div class="stat-num" data-count="1">0</div>
-      <div class="stat-label">Device for Everything</div>
+      <div class="stat-num" data-count="5">0</div>
+      <div class="stat-label" data-i18n="stats.stages">Learning Stages</div>
     </div>
     <div class="stat">
-      <div class="stat-num stat-symbol">∞</div>
-      <div class="stat-label">Learning Tracks</div>
+      <div class="stat-num" data-count="24">0</div>
+      <div class="stat-label" data-i18n="stats.lessons">Hands-on Lessons</div>
     </div>
     <div class="stat">
       <div class="stat-num stat-symbol"><span class="material-symbols-outlined">wifi_off</span></div>
-      <div class="stat-label">Works Offline</div>
+      <div class="stat-label" data-i18n="stats.offline">Works Offline</div>
     </div>
     <div class="stat">
       <div class="stat-num" data-count="0">0</div>
-      <div class="stat-label">Cloud Dependency</div>
+      <div class="stat-label" data-i18n="stats.cloud">Cloud Dependency</div>
     </div>
   </div>
 
@@ -106,29 +110,29 @@
 
   <!-- WHAT IS IT -->
   <section id="what">
-    <div class="section-label">The product</div>
-    <h2>A robot that is also a computer.<br>A computer that is also a teacher.</h2>
+    <div class="section-label" data-i18n="what.label">The product</div>
+    <h2 data-i18n="what.title">A robot that is also a computer.<br>A computer that is also a teacher.</h2>
     <div class="what-grid">
       <div class="what-body reveal">
-        <p>
+        <p data-i18n="what.p1">
           <strong>LearningMachina</strong> is a compact robot built on
           <strong>NVIDIA Hardware</strong> — a full Linux PC with a GPU,
           squeezed into a LEGO-compatible case. Connect a monitor and keyboard:
           it's a computer. Connect motors, cameras, and sensors: it's a robot.
         </p>
-        <p>
+        <p data-i18n="what.p2">
           Most people who want to learn programming, robotics, <em>and</em> AI need
           three separate setups — a laptop, a robotics kit, and a GPU workstation.
           That's thousands of euros and hours of configuration before you write a
           single line of code.
         </p>
-        <p>
+        <p data-i18n="what.p3">
           LearningMachina ships ready. Every tool installed, every language
           configured, every course pre-loaded. Plug it in, power it on, and start
           learning. No setup, no cloud accounts, no broken dependencies. Just you and the machine,
           learning together, wherever you are — even off-grid.
         </p>
-        <p>
+        <p data-i18n="what.p4">
           <strong>And the best part</strong> is the AI coach that lives inside. A local LLM, fine-tuned on the curriculum,
           ready to answer your questions, debug your code, and guide you through every step of the learning process.
           Your personal tutor, available 24/7, without needing an internet connection.
@@ -136,46 +140,64 @@
         </p>
       </div>
       <ul class="spec-list reveal reveal-right">
-        <li><span class="spec-icon material-symbols-outlined">developer_board</span> NVIDIA Hardware — full Linux + GPU</li>
-        <li><span class="spec-icon material-symbols-outlined">auto_stories</span> Courses included</li>
-        <li><span class="spec-icon material-symbols-outlined">smart_toy</span> Local AI tutor</li>
-        <li><span class="spec-icon material-symbols-outlined">mic</span> Built-in voice interface</li>
-        <li><span class="spec-icon material-symbols-outlined">settings_input_component</span> Motor driver board included</li>
-        <li><span class="spec-icon material-symbols-outlined">photo_camera</span> Camera, sensors &amp; motor ports ready</li>
-        <li><span class="spec-icon material-symbols-outlined">extension</span> LEGO-compatible modular case</li>
-        <li><span class="spec-icon material-symbols-outlined">terminal</span> Python, C++, Rust &amp; Nodejs pre-installed</li>
-        <li><span class="spec-icon material-symbols-outlined">wifi_off</span> 100% offline capable</li>
-        <li><span class="spec-icon material-symbols-outlined">battery_full</span> Battery included</li>
-        <li><span class="spec-icon material-symbols-outlined">cloud</span> Optional cloud connectivity</li>
+        <li><span class="spec-icon material-symbols-outlined">developer_board</span> <span data-i18n="spec.nvidia">NVIDIA Hardware — full Linux + GPU</span></li>
+        <li><span class="spec-icon material-symbols-outlined">auto_stories</span> <span data-i18n="spec.courses">Courses included</span></li>
+        <li><span class="spec-icon material-symbols-outlined">smart_toy</span> <span data-i18n="spec.tutor">Local AI tutor</span></li>
+        <li><span class="spec-icon material-symbols-outlined">mic</span> <span data-i18n="spec.voice">Built-in voice interface</span></li>
+        <li><span class="spec-icon material-symbols-outlined">settings_input_component</span> <span data-i18n="spec.motor">Motor driver board included</span></li>
+        <li><span class="spec-icon material-symbols-outlined">photo_camera</span> <span data-i18n="spec.camera">Camera, sensors &amp; motor ports ready</span></li>
+        <li><span class="spec-icon material-symbols-outlined">extension</span> <span data-i18n="spec.lego">LEGO-compatible modular case</span></li>
+        <li><span class="spec-icon material-symbols-outlined">terminal</span> <span data-i18n="spec.langs">Python, C++, Rust &amp; Nodejs pre-installed</span></li>
+        <li><span class="spec-icon material-symbols-outlined">wifi_off</span> <span data-i18n="spec.offline">100% offline capable</span></li>
+        <li><span class="spec-icon material-symbols-outlined">battery_full</span> <span data-i18n="spec.battery">Battery included</span></li>
+        <li><span class="spec-icon material-symbols-outlined">cloud</span> <span data-i18n="spec.cloud">Optional cloud connectivity</span></li>
       </ul>
     </div>
   </section>
 
   <div class="divider"></div>
 
-  <!-- LEARNING TRACKS -->
+  <!-- LEARNING STAGES -->
   <section id="learn">
-    <div class="section-label">The curriculum</div>
-    <h2>One path. No dead ends.</h2>
-    <div class="tracks">
-      <div class="track-card reveal" data-num="01" style="--delay: 0s">
-        <div class="track-icon material-symbols-outlined">laptop_mac</div>
-        <div class="track-level">Level 01 — Beginner</div>
-        <h3>Programming</h3>
-        <p>Variables, loops, functions. Your first real programs running on real hardware. Python and C++ from scratch.</p>
+    <div class="section-label" data-i18n="learn.label">The curriculum</div>
+    <h2 data-i18n="learn.title">Five stages. Zero to autonomous.</h2>
+    <p class="section-subtitle" data-i18n="learn.subtitle">Every lesson follows the embodied learning loop: Concept → Code → Action → Reflection → Extension. You don't just read — you make the robot do it.</p>
+    <div class="tracks tracks-5">
+      <div class="track-card reveal" data-num="00" style="--delay: 0s">
+        <div class="track-icon material-symbols-outlined">terminal</div>
+        <div class="track-level" data-i18n="stage0.level">Stage 0 — Foundation</div>
+        <h3 data-i18n="stage0.title">Linux &amp; the Machine</h3>
+        <p data-i18n="stage0.desc">The command line, SSH, Git, and the robot's hardware. You learn to talk to the machine before telling it what to do.</p>
       </div>
-      <div class="track-card reveal" data-num="02" style="--delay: 0.1s">
+      <div class="track-card reveal" data-num="01" style="--delay: 0.08s">
+        <div class="track-icon material-symbols-outlined">code</div>
+        <div class="track-level" data-i18n="stage1.level">Stage 1 — Beginner</div>
+        <h3 data-i18n="stage1.title">Programming</h3>
+        <p data-i18n="stage1.desc">Python, C++, Rust, data structures, and networking. Build a web dashboard that talks to your robot in real time.</p>
+      </div>
+      <div class="track-card reveal" data-num="02" style="--delay: 0.16s">
         <div class="track-icon material-symbols-outlined">smart_toy</div>
-        <div class="track-level">Level 02 — Intermediate</div>
-        <h3>Robotics</h3>
-        <p>Wire motors and sensors. Write control code. Watch your robot move, react, and navigate the physical world.</p>
+        <div class="track-level" data-i18n="stage2.level">Stage 2 — Intermediate</div>
+        <h3 data-i18n="stage2.title">Robotics</h3>
+        <p data-i18n="stage2.desc">Electronics, motor control, sensors, computer vision, and ROS2. The robot moves, sees, and reacts to the physical world.</p>
       </div>
-      <div class="track-card reveal" data-num="03" style="--delay: 0.2s">
+      <div class="track-card reveal" data-num="03" style="--delay: 0.24s">
         <div class="track-icon material-symbols-outlined">psychology</div>
-        <div class="track-level">Level 03 — Advanced</div>
-        <h3>AI &amp; Machine Learning</h3>
-        <p>Train models locally on the robot itself. Object detection, autonomous navigation — real AI, on real hardware.</p>
+        <div class="track-level" data-i18n="stage3.level">Stage 3 — Advanced</div>
+        <h3 data-i18n="stage3.title">AI &amp; Machine Learning</h3>
+        <p data-i18n="stage3.desc">PyTorch, deep learning, transformers, agentic AI, multimodal models — all running locally on the Jetson GPU. The robot learns to think.</p>
       </div>
+      <div class="track-card reveal" data-num="04" style="--delay: 0.32s">
+        <div class="track-icon material-symbols-outlined">rocket_launch</div>
+        <div class="track-level" data-i18n="stage4.level">Stage 4 — Capstone</div>
+        <h3 data-i18n="stage4.title">Autonomous Robot</h3>
+        <p data-i18n="stage4.desc">Full system architecture, autonomous behaviours, and your graduation mission: design, build, and present an original creation.</p>
+      </div>
+    </div>
+    <div class="learn-cta reveal" style="--delay: 0.4s">
+      <a href="https://github.com/LearningMachina/courses" class="btn-primary" target="_blank">
+        <span class="material-symbols-outlined">auto_stories</span> <span data-i18n="learn.cta">View Course Material</span>
+      </a>
     </div>
   </section>
 
@@ -183,23 +205,23 @@
 
   <!-- AI COACH -->
   <section id="coach">
-    <div class="section-label">The AI learning coach</div>
-    <h2>Your teacher lives in the robot.</h2>
+    <div class="section-label" data-i18n="coach.label">The AI learning coach</div>
+    <h2 data-i18n="coach.title">Your teacher lives in the robot.</h2>
     <div class="coach-grid">
       <div class="coach-card coach-hero reveal">
         <span class="icon material-symbols-outlined">school</span>
-        <h3>A local LLM, fine-tuned on every course</h3>
-        <p>An AI coach runs entirely on the device — no internet, no subscription. It knows the full curriculum, answers questions in depth, explains what went wrong in your code, and guides you through every step. Your personal tutor, available 24/7, even off-grid.</p>
+        <h3 data-i18n="coach.hero.title">A local LLM, fine-tuned on every course</h3>
+        <p data-i18n="coach.hero.desc">An AI coach runs entirely on the device — no internet, no subscription. It knows the full curriculum, answers questions in depth, explains what went wrong in your code, and guides you through every step. Your personal tutor, available 24/7, even off-grid.</p>
       </div>
       <div class="coach-card reveal" style="--delay: 0.1s">
         <span class="icon material-symbols-outlined">mic</span>
-        <h3>Voice interface</h3>
-        <p>Talk to the robot, hear the answer back. Built-in speech recognition and text-to-speech means your hands stay free while you're building and wiring.</p>
+        <h3 data-i18n="coach.voice.title">Voice interface</h3>
+        <p data-i18n="coach.voice.desc">Talk to the robot, hear the answer back. Built-in speech recognition and text-to-speech means your hands stay free while you're building and wiring.</p>
       </div>
       <div class="coach-card reveal" style="--delay: 0.2s">
         <span class="icon material-symbols-outlined">cloud_sync</span>
-        <h3>Optional cloud upgrade</h3>
-        <p>Connect to a hosted service for a more powerful model, community-contributed content, and continuously updated courses.</p>
+        <h3 data-i18n="coach.cloud.title">Optional cloud upgrade</h3>
+        <p data-i18n="coach.cloud.desc">Connect to a hosted service for a more powerful model, community-contributed content, and continuously updated courses.</p>
       </div>
     </div>
   </section>
@@ -208,28 +230,28 @@
 
   <!-- WHO IS IT FOR -->
   <section id="who">
-    <div class="section-label">Who is it for?</div>
-    <h2>Pretty much everyone, honestly.</h2>
+    <div class="section-label" data-i18n="who.label">Who is it for?</div>
+    <h2 data-i18n="who.title">Pretty much everyone, honestly.</h2>
     <div class="audience-grid">
       <div class="audience-card reveal" style="--delay: 0s">
         <span class="emo material-symbols-outlined">menu_book</span>
-        <h3>Students</h3>
-        <p>Learn to code, build robots, and train AI — all on one device, at your own pace.</p>
+        <h3 data-i18n="who.students.title">Students</h3>
+        <p data-i18n="who.students.desc">Learn to code, build robots, and train AI — all on one device, at your own pace.</p>
       </div>
       <div class="audience-card reveal" style="--delay: 0.1s">
         <span class="emo material-symbols-outlined">cast_for_education</span>
-        <h3>Teachers</h3>
-        <p>A complete classroom tool. No IT setup, no cloud accounts, no broken dependencies.</p>
+        <h3 data-i18n="who.teachers.title">Teachers</h3>
+        <p data-i18n="who.teachers.desc">A complete classroom tool. No IT setup, no cloud accounts, no broken dependencies.</p>
       </div>
       <div class="audience-card reveal" style="--delay: 0.2s">
         <span class="emo material-symbols-outlined">build</span>
-        <h3>Makers &amp; Tinkerers</h3>
-        <p>A Jetson Linux box in a robot body, pre-configured and ready to hack.</p>
+        <h3 data-i18n="who.makers.title">Makers &amp; Tinkerers</h3>
+        <p data-i18n="who.makers.desc">A Jetson Linux box in a robot body, pre-configured and ready to hack.</p>
       </div>
       <div class="audience-card reveal" style="--delay: 0.3s">
         <span class="emo material-symbols-outlined">explore</span>
-        <h3>Off-grid &amp; Remote</h3>
-        <p>Works anywhere, no internet needed. Quality education without connectivity barriers.</p>
+        <h3 data-i18n="who.offgrid.title">Off-grid &amp; Remote</h3>
+        <p data-i18n="who.offgrid.desc">Works anywhere, no internet needed. Quality education without connectivity barriers.</p>
       </div>
     </div>
   </section>
@@ -237,12 +259,15 @@
   <!-- FOLLOW CTA -->
   <section class="follow-section">
     <div class="follow-inner reveal">
-      <div class="section-label" style="justify-content: center; color: #4a5568;">Join the project</div>
-      <h2>This is just the beginning.</h2>
-      <p>LearningMachina is an open, evolving project. Follow along on GitHub to watch it get built — and eventually, build one yourself.</p>
+      <div class="section-label" style="justify-content: center; color: #4a5568;" data-i18n="follow.label">Join the project</div>
+      <h2 data-i18n="follow.title">This is just the beginning.</h2>
+      <p data-i18n="follow.desc">LearningMachina is an open, evolving project. Follow along on GitHub to watch it get built — and eventually, build one yourself.</p>
       <div class="follow-actions">
         <a href="https://github.com/LearningMachina" class="btn-light" target="_blank">
-          <span class="material-symbols-outlined">star</span> Follow on GitHub
+          <span class="material-symbols-outlined">star</span> <span data-i18n="nav.github">Follow on GitHub</span>
+        </a>
+        <a href="https://github.com/LearningMachina/courses" class="btn-outline-light" target="_blank">
+          <span class="material-symbols-outlined">auto_stories</span> <span data-i18n="learn.cta">View Course Material</span>
         </a>
       </div>
     </div>
@@ -251,9 +276,10 @@
   <!-- FOOTER -->
   <footer>
     <a href="#" class="logo">Learning<span>Machina</span></a>
-    <p>Open source · Built with ♥ · <a href="https://github.com/LearningMachina" target="_blank">github.com/LearningMachina</a></p>
+    <p><span data-i18n="footer.text">Open source · Built with ♥</span> · <a href="https://github.com/LearningMachina" target="_blank">github.com/LearningMachina</a></p>
   </footer>
 
+  <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
