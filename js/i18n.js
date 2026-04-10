@@ -46,7 +46,7 @@ const translations = {
 
     // Learning stages
     'learn.label':    'The curriculum',
-    'learn.title':    'Five stages. Zero to autonomous.',
+    'learn.title':    'Six stages. Zero to autonomous.',
     'learn.subtitle': 'Every lesson follows the embodied learning loop: Concept → Code → Action → Reflection → Extension. You don\'t just read — you make the robot do it.',
     'learn.cta':      'View Course Material',
     'stage0.level':   'Stage 0 — Foundation',
@@ -55,15 +55,18 @@ const translations = {
     'stage1.level':   'Stage 1 — Beginner',
     'stage1.title':   'Programming',
     'stage1.desc':    'Python, C++, Rust, data structures, and networking. Build a web dashboard that talks to your robot in real time.',
-    'stage2.level':   'Stage 2 — Intermediate',
-    'stage2.title':   'Robotics',
-    'stage2.desc':    'Electronics, motor control, sensors, computer vision, and ROS2. The robot moves, sees, and reacts to the physical world.',
-    'stage3.level':   'Stage 3 — Advanced',
-    'stage3.title':   'AI & Machine Learning',
-    'stage3.desc':    'PyTorch, deep learning, transformers, agentic AI, multimodal models — all running locally on the Jetson GPU. The robot learns to think.',
-    'stage4.level':   'Stage 4 — Capstone',
-    'stage4.title':   'Autonomous Robot',
-    'stage4.desc':    'Full system architecture, autonomous behaviours, and your graduation mission: design, build, and present an original creation.',
+    'stage2.level':   'Stage 2 — Gaming',
+    'stage2.title':   'Game Development',
+    'stage2.desc':    '2D games in Python, 3D games in C++, and multiplayer with Rust. Learn physics engines, rendering, and networked gameplay.',
+    'stage3.level':   'Stage 3 — Intermediate',
+    'stage3.title':   'Robotics',
+    'stage3.desc':    'Electronics, motor control, sensors, computer vision, and ROS2. The robot moves, sees, and reacts to the physical world.',
+    'stage4.level':   'Stage 4 — Advanced',
+    'stage4.title':   'AI & Machine Learning',
+    'stage4.desc':    'PyTorch, deep learning, transformers, agentic AI, multimodal models — all running locally on the Jetson GPU. The robot learns to think.',
+    'stage5.level':   'Stage 5 — Capstone',
+    'stage5.title':   'Autonomous Robot',
+    'stage5.desc':    'Full system architecture, autonomous behaviours, and your graduation mission: design, build, and present an original creation.',
 
     // Coach
     'coach.label':      'The AI learning coach',
@@ -141,7 +144,7 @@ const translations = {
 
     // Learning stages
     'learn.label':    'Der Lehrplan',
-    'learn.title':    'Fünf Stufen. Von null zum autonomen Roboter.',
+    'learn.title':    'Sechs Stufen. Von null zum autonomen Roboter.',
     'learn.subtitle': 'Jede Lektion folgt dem verkörperten Lernkreislauf: Konzept → Code → Aktion → Reflexion → Erweiterung. Du liest nicht nur — du lässt den Roboter es tun.',
     'learn.cta':      'Kursmaterial ansehen',
     'stage0.level':   'Stufe 0 — Grundlage',
@@ -150,15 +153,18 @@ const translations = {
     'stage1.level':   'Stufe 1 — Anfänger',
     'stage1.title':   'Programmieren',
     'stage1.desc':    'Python, C++, Rust, Datenstrukturen und Netzwerke. Baue ein Web-Dashboard, das in Echtzeit mit deinem Roboter kommuniziert.',
-    'stage2.level':   'Stufe 2 — Mittelstufe',
-    'stage2.title':   'Robotik',
-    'stage2.desc':    'Elektronik, Motorsteuerung, Sensoren, Computer Vision und ROS2. Der Roboter bewegt sich, sieht und reagiert auf die physische Welt.',
-    'stage3.level':   'Stufe 3 — Fortgeschritten',
-    'stage3.title':   'KI & Maschinelles Lernen',
-    'stage3.desc':    'PyTorch, Deep Learning, Transformer, agentische KI, multimodale Modelle — alles lokal auf der Jetson-GPU. Der Roboter lernt zu denken.',
-    'stage4.level':   'Stufe 4 — Abschluss',
-    'stage4.title':   'Autonomer Roboter',
-    'stage4.desc':    'Vollständige Systemarchitektur, autonome Verhaltensweisen und deine Abschlussmission: entwirf, baue und präsentiere eine originale Kreation.',
+    'stage2.level':   'Stufe 2 — Spieleentwicklung',
+    'stage2.title':   'Spieleentwicklung',
+    'stage2.desc':    '2D-Spiele in Python, 3D-Spiele in C++ und Multiplayer mit Rust. Lerne Physik-Engines, Rendering und vernetztes Gameplay.',
+    'stage3.level':   'Stufe 3 — Mittelstufe',
+    'stage3.title':   'Robotik',
+    'stage3.desc':    'Elektronik, Motorsteuerung, Sensoren, Computer Vision und ROS2. Der Roboter bewegt sich, sieht und reagiert auf die physische Welt.',
+    'stage4.level':   'Stufe 4 — Fortgeschritten',
+    'stage4.title':   'KI & Maschinelles Lernen',
+    'stage4.desc':    'PyTorch, Deep Learning, Transformer, agentische KI, multimodale Modelle — alles lokal auf der Jetson-GPU. Der Roboter lernt zu denken.',
+    'stage5.level':   'Stufe 5 — Abschluss',
+    'stage5.title':   'Autonomer Roboter',
+    'stage5.desc':    'Vollständige Systemarchitektur, autonome Verhaltensweisen und deine Abschlussmission: entwirf, baue und präsentiere eine originale Kreation.',
 
     // Coach
     'coach.label':      'Der KI-Lerncoach',
@@ -189,12 +195,120 @@ const translations = {
 
     // Footer
     'footer.text': 'Open Source · Mit ♥ gebaut',
+  },
+
+  fr: {
+    // Nav
+    'nav.what':    'Quoi',
+    'nav.learn':   'Apprendre',
+    'nav.coach':   'Coach IA',
+    'nav.who':     'Pour qui',
+    'nav.github':  'Suivre sur GitHub',
+
+    // Hero
+    'hero.eyebrow': 'Matériel EdTech Open Source',
+    'hero.line1':   'Apprendre.',
+    'hero.line2':   'Construire.',
+    'hero.line3':   'Puis le faire penser.',
+    'hero.desc':    'Un robot. Un appareil. Tout ce qu\'il faut pour passer de votre première ligne de code à une machine entièrement autonome, propulsée par l\'IA — sans connexion internet.',
+    'hero.learnMore': 'En savoir plus',
+
+    // Stats
+    'stats.stages':  'Étapes d\'apprentissage',
+    'stats.lessons': 'Leçons pratiques',
+    'stats.offline': 'Fonctionne hors ligne',
+    'stats.cloud':   'Dépendance cloud',
+
+    // What
+    'what.label': 'Le produit',
+    'what.title': 'Un robot qui est aussi un ordinateur.<br>Un ordinateur qui est aussi un professeur.',
+    'what.p1':    '<strong>LearningMachina</strong> est un robot compact construit sur du <strong>matériel NVIDIA</strong> — un PC Linux complet avec GPU, intégré dans un boîtier compatible LEGO. Branchez un écran et un clavier : c\'est un ordinateur. Branchez des moteurs, caméras et capteurs : c\'est un robot.',
+    'what.p2':    'La plupart des gens qui veulent apprendre la programmation, la robotique <em>et</em> l\'IA ont besoin de trois installations séparées — un ordinateur portable, un kit de robotique et une station GPU. Ce sont des milliers d\'euros et des heures de configuration avant d\'écrire une seule ligne de code.',
+    'what.p3':    'LearningMachina est livré prêt à l\'emploi. Chaque outil installé, chaque langage configuré, chaque cours préchargé. Branchez, allumez et commencez à apprendre. Pas de configuration, pas de comptes cloud, pas de dépendances cassées. Juste vous et la machine, apprenant ensemble, où que vous soyez — même hors réseau.',
+    'what.p4':    '<strong>Et le meilleur</strong>, c\'est le coach IA qui vit à l\'intérieur. Un LLM local, affiné sur le programme, prêt à répondre à vos questions, déboguer votre code et vous guider à chaque étape du processus d\'apprentissage. Votre tuteur personnel, disponible 24h/24, sans connexion internet. Et vous pouvez même lui parler — l\'interface vocale intégrée vous permet de poser des questions et d\'obtenir des réponses sans jamais quitter votre matériel des mains.',
+
+    // Spec list
+    'spec.nvidia':   'Matériel NVIDIA — Linux complet + GPU',
+    'spec.courses':  'Cours inclus',
+    'spec.tutor':    'Tuteur IA local',
+    'spec.voice':    'Interface vocale intégrée',
+    'spec.motor':    'Carte de pilotage moteur incluse',
+    'spec.camera':   'Caméra, capteurs & ports moteur prêts',
+    'spec.lego':     'Boîtier modulaire compatible LEGO',
+    'spec.langs':    'Python, C++, Rust & Nodejs préinstallés',
+    'spec.offline':  '100 % utilisable hors ligne',
+    'spec.battery':  'Batterie incluse',
+    'spec.cloud':    'Connectivité cloud optionnelle',
+
+    // Learning stages
+    'learn.label':    'Le programme',
+    'learn.title':    'Six étapes. De zéro à l\'autonomie.',
+    'learn.subtitle': 'Chaque leçon suit la boucle d\'apprentissage incarné : Concept → Code → Action → Réflexion → Extension. Vous ne lisez pas seulement — vous faites agir le robot.',
+    'learn.cta':      'Voir le matériel de cours',
+    'stage0.level':   'Étape 0 — Fondation',
+    'stage0.title':   'Linux & la Machine',
+    'stage0.desc':    'La ligne de commande, SSH, Git et le matériel du robot. Vous apprenez à parler à la machine avant de lui dire quoi faire.',
+    'stage1.level':   'Étape 1 — Débutant',
+    'stage1.title':   'Programmation',
+    'stage1.desc':    'Python, C++, Rust, structures de données et réseaux. Construisez un tableau de bord web qui communique avec votre robot en temps réel.',
+    'stage2.level':   'Étape 2 — Jeux vidéo',
+    'stage2.title':   'Développement de jeux',
+    'stage2.desc':    'Jeux 2D en Python, jeux 3D en C++ et multijoueur avec Rust. Apprenez les moteurs physiques, le rendu et le gameplay en réseau.',
+    'stage3.level':   'Étape 3 — Intermédiaire',
+    'stage3.title':   'Robotique',
+    'stage3.desc':    'Électronique, contrôle moteur, capteurs, vision par ordinateur et ROS2. Le robot bouge, voit et réagit au monde physique.',
+    'stage4.level':   'Étape 4 — Avancé',
+    'stage4.title':   'IA & Apprentissage automatique',
+    'stage4.desc':    'PyTorch, deep learning, transformers, IA agentique, modèles multimodaux — tout exécuté localement sur le GPU Jetson. Le robot apprend à penser.',
+    'stage5.level':   'Étape 5 — Projet final',
+    'stage5.title':   'Robot autonome',
+    'stage5.desc':    'Architecture système complète, comportements autonomes et votre mission finale : concevoir, construire et présenter une création originale.',
+
+    // Coach
+    'coach.label':      'Le coach IA',
+    'coach.title':      'Votre professeur vit dans le robot.',
+    'coach.hero.title': 'Un LLM local, affiné sur chaque cours',
+    'coach.hero.desc':  'Un coach IA fonctionne entièrement sur l\'appareil — pas d\'internet, pas d\'abonnement. Il connaît tout le programme, répond aux questions en profondeur, explique ce qui n\'a pas fonctionné dans votre code et vous guide à chaque étape. Votre tuteur personnel, disponible 24h/24, même hors réseau.',
+    'coach.voice.title': 'Interface vocale',
+    'coach.voice.desc':  'Parlez au robot, écoutez la réponse. La reconnaissance vocale et la synthèse vocale intégrées vous permettent de garder les mains libres pendant que vous construisez et câblez.',
+    'coach.cloud.title': 'Mise à niveau cloud optionnelle',
+    'coach.cloud.desc':  'Connectez-vous à un service hébergé pour un modèle plus puissant, du contenu contribué par la communauté et des cours continuellement mis à jour.',
+
+    // Who
+    'who.label':          'Pour qui ?',
+    'who.title':          'À peu près tout le monde, honnêtement.',
+    'who.students.title': 'Étudiants',
+    'who.students.desc':  'Apprenez à coder, construisez des robots et entraînez de l\'IA — le tout sur un seul appareil, à votre rythme.',
+    'who.teachers.title': 'Enseignants',
+    'who.teachers.desc':  'Un outil pédagogique complet. Pas de configuration IT, pas de comptes cloud, pas de dépendances cassées.',
+    'who.makers.title':   'Makers & Bricoleurs',
+    'who.makers.desc':    'Un boîtier Linux Jetson dans un corps de robot, préconfiguré et prêt à bidouiller.',
+    'who.offgrid.title':  'Hors réseau & Isolé',
+    'who.offgrid.desc':   'Fonctionne partout, pas d\'internet nécessaire. Une éducation de qualité sans barrières de connectivité.',
+
+    // Follow
+    'follow.label': 'Rejoignez le projet',
+    'follow.title': 'Ce n\'est que le début.',
+    'follow.desc':  'LearningMachina est un projet ouvert et évolutif. Suivez sur GitHub pour le voir se construire — et un jour, construisez le vôtre.',
+
+    // Footer
+    'footer.text': 'Open source · Fait avec ♥',
   }
 };
 
 /* ── i18n engine ─────────────────────────────────────────── */
 
-let currentLang = localStorage.getItem('lm-lang') || (navigator.language.startsWith('de') ? 'de' : 'en');
+let currentLang = localStorage.getItem('lm-lang') ||
+  (navigator.language.startsWith('de') ? 'de' :
+   navigator.language.startsWith('fr') ? 'fr' : 'en');
+
+const langMeta = {
+  en: { flag: '🇬🇧', title: 'LearningMachina — Learn. Build. Think.' },
+  de: { flag: '🇩🇪', title: 'LearningMachina — Lernen. Bauen. Denken.' },
+  fr: { flag: '🇫🇷', title: 'LearningMachina — Apprendre. Construire. Penser.' },
+};
+
+const langOrder = ['en', 'de', 'fr'];
 
 function setLanguage(lang) {
   currentLang = lang;
@@ -209,14 +323,12 @@ function setLanguage(lang) {
   });
 
   // Update page title
-  document.title = lang === 'de'
-    ? 'LearningMachina — Lernen. Bauen. Denken.'
-    : 'LearningMachina — Learn. Build. Think.';
+  document.title = langMeta[lang]?.title || langMeta.en.title;
 
   // Update lang toggle button
   const flagEl = document.getElementById('langFlag');
   const codeEl = document.getElementById('langCode');
-  if (flagEl) flagEl.textContent = lang === 'de' ? '🇩🇪' : '🇬🇧';
+  if (flagEl) flagEl.textContent = langMeta[lang]?.flag || '🇬🇧';
   if (codeEl) codeEl.textContent = lang.toUpperCase();
 }
 
@@ -227,7 +339,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const toggle = document.getElementById('langToggle');
   if (toggle) {
     toggle.addEventListener('click', () => {
-      setLanguage(currentLang === 'en' ? 'de' : 'en');
+      const nextLang = langOrder[(langOrder.indexOf(currentLang) + 1) % langOrder.length];
+      setLanguage(nextLang);
     });
   }
 });
